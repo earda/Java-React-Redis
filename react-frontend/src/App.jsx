@@ -1,26 +1,27 @@
-import { useEffect,useState } from 'react' 
+import { useEffect ,useState } from 'react' 
 import './App.css'
-import axios from 'axios';
+import axios from 'axios'; 
 
 const BASE_URL = "http://localhost:8080" ;
 
-function App() {
-  // eslint-disable-next-line no-undef
+function App() { 
   const [users, setUsers] = useState([]);
-  const getAllUsers= async()=>{
-    try {
+  const getAllUsers= async()=>{ 
       const response = await axios.get(BASE_URL + "/user");
-      setUsers(response.data); // Veriyi state'e kaydettik.
-    } catch (error) {
-      console.error("Veri çekilirken hata oluştu:", error);
-    }
+      setUsers(response.data);  
   }
- /* const getElementById= async(response.data.)=>{
-    const response = await axios.get(BASE_URL+"/user");
+/*  const getElementById= async(userId)=>{
+    const response = await axios.get(`${BASE_URL}/user/${userId}`);
+    setUsers( response.data);
+  } 
+  const getById = async()=>{
+    const response = await getElementById(2);
     console.log(response.data);
   }*/
+
+  
   useEffect(()=>{// component ilk yuklendiginde methodun icindeki fonksiyonu calistir.
-    getAllUsers();
+    getAllUsers(); 
   },[])
 
   return (
@@ -29,11 +30,12 @@ function App() {
        <h1>Users</h1>
        <ul>
         {users.map((user) => (
-          <li key='1'>{user.email}</li> // Kullanıcı isimlerini liste halinde gösteriyoruz.
+          <li key={user.id}>{user.name}</li> // Kullanıcı isimlerini liste halinde gösteriyoruz.
         ))}
       </ul>
       </div> 
   )
 }
-
+ 
 export default App
+
