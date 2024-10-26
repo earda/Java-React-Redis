@@ -11,4 +11,5 @@ public interface UserService {
     public boolean saveUser(User user) ;
 
     List<User> fetchAllUsers();
+    User fetchUserById(Long id);
 }

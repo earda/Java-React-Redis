@@ -32,4 +32,15 @@ public class UserDaoImpl implements UserDao {
        return users;
 
     }
+
+    @Override
+    public User fetchUserById(Long id) {
+        Object userObject = redisTemplate.opsForHash().get(KEY, id.toString());
+
+        if (userObject instanceof User) {
+            return (User) userObject;
+        } else {
+            return null;
+        }
+    }
 }

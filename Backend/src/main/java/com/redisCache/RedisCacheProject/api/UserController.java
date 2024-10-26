@@ -32,4 +32,14 @@ public class UserController {
         users=userService.fetchAllUsers();
         return ResponseEntity.ok(users);
     }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<User> fetchUserById(@PathVariable Long id) {
+        User user = userService.fetchUserById(id);
+        if (user != null) {
+            return (ResponseEntity<User>) ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
