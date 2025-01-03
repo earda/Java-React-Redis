@@ -3,7 +3,6 @@
 
 <p  align="left" >Hi , I'm Erdem</h5>
 <p  align="left">This project is a working project using Redis as a database that performs CRUD operations.</p> 
-<p  align="left">It will be updated day by day with various additions.</p>
 <p  align="left">This project is developed in Java 21 , Springboot 3.3.5 </p>
  
 <p align="left"><h3>Languages and Tools: </h3>
